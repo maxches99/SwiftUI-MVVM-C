@@ -11,6 +11,7 @@ import protocol SwiftUI.ObservableObject
 class WeatherDetailViewModel: ObservableObject {
     let didNavigateBack = PassthroughSubject<Void, Never>()
     let didNavigateRoot = PassthroughSubject<Void, Never>()
+    let didRemoveScene = PassthroughSubject<Void, Never>()
     let didSelectedIndividual = PassthroughSubject<Forecast, Never>()
     
     private var coordinator: WeatherDetailCoordinator?
@@ -31,6 +32,14 @@ class WeatherDetailViewModel: ObservableObject {
     
     func rootAction() {
         didNavigateRoot.send(())
+    }
+    
+    func dismissScene() {
+        didRemoveScene.send(())
+    }
+    
+    deinit {
+        print("||deinit WeatherDetailViewModel")
     }
     
 }

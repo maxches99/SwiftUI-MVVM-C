@@ -22,6 +22,8 @@ protocol CoordinatorProtocol: AnyObject {
     
     func popScene(animated: Bool)
     func popToRootScene(animated: Bool)
+    
+    func removeScene()
 }
 
 extension CoordinatorProtocol {
@@ -48,5 +50,10 @@ extension CoordinatorProtocol {
             }
             localParent = localParent?.parent
         }
+    }
+    
+    func removeScene() {
+        parent?.child.removeLast()
+        print(parent?.child)
     }
 }

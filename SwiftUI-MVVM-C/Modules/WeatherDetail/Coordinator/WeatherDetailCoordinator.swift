@@ -47,6 +47,11 @@ class WeatherDetailCoordinator: CoordinatorProtocol, ObservableObject, Identifia
             .sink { [weak self] (item) in
                 self?.popToRootScene(animated: true)
         }
+        
+        cancellables["removeScene"] = viewModel.didRemoveScene
+            .sink { [weak self] (item) in
+                self?.removeScene()
+        }
     }
     
     private func showDetailScreen(_ item:Forecast) {
@@ -55,6 +60,10 @@ class WeatherDetailCoordinator: CoordinatorProtocol, ObservableObject, Identifia
         let controller = UIHostingController(rootView: weatherDetailCoordinator.view.environmentObject(viewModel))
         child.append(weatherDetailCoordinator)
         navigationController.pushViewController(controller, animated: true)
+    }
+    
+    deinit {
+        print("||deinit WeatherDetailCoordinator")
     }
 }
 
