@@ -58,8 +58,7 @@ class WeatherDetailCoordinator: CoordinatorProtocol, ObservableObject, Identifia
         let viewModel = WeatherDetailViewModel(forecast: item)
         let weatherDetailCoordinator = WeatherDetailCoordinator(viewModel: viewModel, parent: self)
         let controller = UIHostingController(rootView: weatherDetailCoordinator.view.environmentObject(viewModel))
-        child.append(weatherDetailCoordinator)
-        navigationController.pushViewController(controller, animated: true)
+        pushScene(viewController: controller, coordinator: weatherDetailCoordinator, animated: true)
     }
     
     deinit {

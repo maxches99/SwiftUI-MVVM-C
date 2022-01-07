@@ -23,6 +23,9 @@ protocol CoordinatorProtocol: AnyObject, CoordinatorNavigationControllerDelegate
     func popScene(animated: Bool)
     func popToRootScene(animated: Bool)
     
+    func pushScene(viewController: UIViewController, coordinator: CoordinatorProtocol, animated: Bool)
+    func changeRootScene(viewController: UIViewController, coordinator: CoordinatorProtocol)
+    
     func removeScene()
     
     func getLastChild() -> CoordinatorProtocol?
@@ -75,6 +78,20 @@ extension CoordinatorProtocol {
             localChild = localChild?.child.last
         }
         return localChild
+    }
+    
+    func pushScene(viewController: UIViewController, coordinator: CoordinatorProtocol, animated: Bool) {
+        child.append(coordinator)
+        navigationController.pushViewController(viewController, animated: animated)
+    }
+    
+    func changeRootScene(viewController: UIViewController, coordinator: CoordinatorProtocol) {
+        coordinator.window = window
+        child.append(coordinator)
+        let nav = CoordinatorNavigationController(rootViewController: viewController)
+        
+        nav.navigationBar.isHidden = true
+        window?.rootViewController = nav
     }
     
 }

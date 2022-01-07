@@ -34,7 +34,6 @@ class WeatherListCoordinator: CoordinatorProtocol, ObservableObject, Identifiabl
     func listenActions() {
         cancellables["showList"] = viewModel.didSelectedIndividual
             .sink { [weak self] (item) in
-                print("||showDetailScreen")
                 self?.showDetailScreen(item)
             }
     }
@@ -44,7 +43,7 @@ class WeatherListCoordinator: CoordinatorProtocol, ObservableObject, Identifiabl
         let viewModel = WeatherDetailViewModel(forecast: item)
         let weatherDetailCoordinator = WeatherDetailCoordinator(viewModel: viewModel, parent: self)
         let controller = UIHostingController(rootView: weatherDetailCoordinator.view.environmentObject(viewModel))
-        child.append(weatherDetailCoordinator)
-        navigationController.pushViewController(controller, animated: true)
+        
+        pushScene(viewController: controller, coordinator: weatherDetailCoordinator, animated: true)
     }
 }
