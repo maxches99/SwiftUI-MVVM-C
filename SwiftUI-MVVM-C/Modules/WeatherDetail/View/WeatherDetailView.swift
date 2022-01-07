@@ -24,9 +24,6 @@ struct WeatherDetailView: View {
                 Button("New screen", action: viewModel.selectItem)
             }
         }
-        .onDisappear(perform: {
-            viewModel.dismissScene()
-        })
     }
 }
 

@@ -70,7 +70,8 @@ class AppCoordinator: AppCoordinatorProtocol {
 
 
         let controller = UIHostingController(rootView: WeatherListView().environmentObject(viewModel))
-        let nav = UINavigationController(rootViewController: controller)
+        let nav = CoordinatorNavigationController(rootViewController: controller)
+        nav.swipeBackDelegate = self
         nav.navigationBar.isHidden = true
         window?.rootViewController = nav
     }
