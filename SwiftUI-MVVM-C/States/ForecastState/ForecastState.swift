@@ -34,15 +34,15 @@ enum ResultState: Equatable {
     var title: String {
         switch self {
         case .locating:
-            return "Идет поиск твоей жопы"
+            return "Идет поиск"
         case .endLocating:
-            return "Мы нашли тебя, загружаем данные, чтобы твое ебало не замерзло"
+            return "Мы нашли тебя"
         case .loading:
-            return "Мы нашли тебя, загружаем данные, чтобы твое ебало не замерзло"
+            return "Мы нашли тебя, загружаем данные"
         case .success(_):
             return "Погода загружена, а ты все еще с нами"
         case .failed(_):
-            return "Сервак работает, как сука, швейцарские часы, но не сеголня"
+            return "Сервак работает, но не сеголня"
         }
     }
 }
