@@ -26,7 +26,7 @@ struct WeatherListView: View {
                                     }
                             }
                         }
-                        .navigationTitle(Text("Эта ебаная погода"))
+                        .navigationTitle(Text("Weather"))
                     }
                 }
             default:

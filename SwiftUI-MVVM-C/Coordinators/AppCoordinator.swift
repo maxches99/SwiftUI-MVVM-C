@@ -9,34 +9,15 @@ import UIKit
 import SwiftUI
 import Combine
 
-enum HomeTab {
-    case meat
-    case veggie
-    case settings
-}
-
-protocol AppCoordinatorProtocol: CoordinatorProtocol {
+protocol AppCoordinatorProtocol {
     func start()
 }
 
-class AppCoordinator: AppCoordinatorProtocol {
+class AppCoordinator: Coordinator, AppCoordinatorProtocol {
     
-    var window: UIWindow?
-    
-    var cancellables = [String: AnyCancellable]()
-    
-    var child: [CoordinatorProtocol] = []
-    
-    unowned var parent: CoordinatorProtocol?
-    
-    init(window: UIWindow, parent: CoordinatorProtocol?) {
+    init(window: UIWindow, parent: Coordinator?) {
+        super.init(parent: parent)
         self.window = window
-        self.parent = parent
-    }
-    
-    init(parent: AppCoordinator?) {
-        self.parent = parent
-        self.window = nil
     }
     
     func start() {

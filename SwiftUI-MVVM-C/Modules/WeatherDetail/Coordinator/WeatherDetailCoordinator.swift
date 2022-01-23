@@ -8,22 +8,16 @@
 import SwiftUI
 import Combine
 
-class WeatherDetailCoordinator: CoordinatorProtocol, ObservableObject, Identifiable {
-    var window: UIWindow?
-    
-    var parent: CoordinatorProtocol?
+class WeatherDetailCoordinator: Coordinator, ObservableObject, Identifiable {
     
     @Published var viewModel:WeatherDetailViewModel!
     @Published var view: WeatherDetailView!
     
-    var child: [CoordinatorProtocol] = []
-    
-    var cancellables: [String: AnyCancellable] = [:]
-    
     init(viewModel: WeatherDetailViewModel,
-         parent: CoordinatorProtocol) {
+         parent: Coordinator) {
         
-        self.parent = parent
+        super.init(parent: parent)
+        
         self.viewModel = viewModel
         self.view = WeatherDetailView()
         

@@ -8,23 +8,13 @@
 import SwiftUI
 import Combine
 
-class WeatherListCoordinator: CoordinatorProtocol, ObservableObject, Identifiable {
-    var window: UIWindow?
-    
-    var parent: CoordinatorProtocol?
-    
-    var child: [CoordinatorProtocol] = []
+class WeatherListCoordinator: Coordinator, ObservableObject, Identifiable {
     
     @Published var viewModel: WeatherListViewModel!
     
-    var cancellables: [String: AnyCancellable] = [:]
-    
     init(viewModel: WeatherListViewModel,
-         parent: CoordinatorProtocol?) {
-        
-        print("||init WeatherListCoordinator")
-        
-        self.parent = parent
+         parent: Coordinator?) {
+        super.init(parent: parent)
         
         self.viewModel = viewModel
         
@@ -32,14 +22,13 @@ class WeatherListCoordinator: CoordinatorProtocol, ObservableObject, Identifiabl
     }
     
     func listenActions() {
-        cancellables["showList"] = viewModel.didSelectedIndividual
+        cancellables["didSelectedIndividual"] = viewModel.didSelectedIndividual
             .sink { [weak self] (item) in
                 self?.showDetailScreen(item)
             }
     }
     
     private func showDetailScreen(_ item:Forecast) {
-        print("||showDetailScreen(_ item:Forecast)")
         let viewModel = WeatherDetailViewModel(forecast: item)
         let weatherDetailCoordinator = WeatherDetailCoordinator(viewModel: viewModel, parent: self)
         let controller = UIHostingController(rootView: weatherDetailCoordinator.view.environmentObject(viewModel))

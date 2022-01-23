@@ -35,6 +35,7 @@
 		82301E152783B2910030B127 /* WeatherDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82301E142783B2910030B127 /* WeatherDetailCoordinator.swift */; };
 		82301E172783B2B10030B127 /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82301E162783B2B10030B127 /* WeatherDetailView.swift */; };
 		82301E1A2783B8E40030B127 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82301E192783B8E40030B127 /* ForecastCell.swift */; };
+		82BD63F22788F66B00121036 /* CoordinatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		82301E142783B2910030B127 /* WeatherDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCoordinator.swift; sourceTree = "<group>"; };
 		82301E162783B2B10030B127 /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
 		82301E192783B8E40030B127 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				82301DE52783AE1A0030B127 /* AppCoordinator.swift */,
 				82301DE72783AE1A0030B127 /* Coordinator.swift */,
+				82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				82301E152783B2910030B127 /* WeatherDetailCoordinator.swift in Sources */,
 				82301E022783AE1A0030B127 /* Coordinator.swift in Sources */,
 				82301E172783B2B10030B127 /* WeatherDetailView.swift in Sources */,
+				82BD63F22788F66B00121036 /* CoordinatorNavigationController.swift in Sources */,
 				82301E002783AE1A0030B127 /* AppCoordinator.swift in Sources */,
 				82301DFE2783AE1A0030B127 /* Weather.swift in Sources */,
 				82301E082783AE1A0030B127 /* WeatherListView.swift in Sources */,
