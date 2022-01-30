@@ -16,7 +16,7 @@ protocol AppCoordinatorProtocol {
 class AppCoordinator: Coordinator, AppCoordinatorProtocol {
     
     init(window: UIWindow, parent: Coordinator?) {
-        super.init(parent: parent)
+        super.init(title: "AppCoordinator", parent: parent)
         self.window = window
     }
     
@@ -42,6 +42,8 @@ class AppCoordinator: Coordinator, AppCoordinatorProtocol {
         viewModel.getForecasts()
         let weatherListCoordinator = WeatherListCoordinator(viewModel: viewModel, parent: nil)
         let controller = UIHostingController(rootView: WeatherListView().environmentObject(viewModel))
+        weatherListCoordinator.vc = controller
+        viewModel.coordinator = weatherListCoordinator
         
         changeRootScene(viewController: controller, coordinator: weatherListCoordinator)
     }

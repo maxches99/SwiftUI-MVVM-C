@@ -26,7 +26,7 @@ struct WeatherListView: View {
                                     }
                             }
                         }
-                        .navigationTitle(Text("Weather"))
+                        .navigationTitle(Text(viewModel.title))
                     }
                 }
             default:

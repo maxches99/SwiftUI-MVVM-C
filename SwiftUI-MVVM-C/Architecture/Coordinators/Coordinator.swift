@@ -8,17 +8,24 @@
 import UIKit
 import Combine
 
-class Coordinator: CoordinatorNavigationControllerDelegate {
+class Coordinator: CoordinatorNavigationControllerDelegate, Identifiable {
+    
+    var id: UUID = UUID()
+    
+    var title: String
     
     var cancellables: [String: AnyCancellable] = [:]
     
     var window: UIWindow? = nil
     
+    var vc: UIViewController? = nil
+    
     unowned var parent: Coordinator? = nil
     
     var child: [Coordinator] = []
     
-    init(parent: Coordinator?) {
+    init(title: String, parent: Coordinator?) {
+        self.title = title
         self.parent = parent
     }
 }
@@ -48,6 +55,26 @@ extension Coordinator {
             }
             localParent = localParent?.parent
         }
+    }
+    
+    func popToScene(coordinator: Coordinator, animated: Bool) {
+        if let vc = coordinator.vc {
+            navigationController.popToViewController(vc, animated: true)
+        }
+        var localParent: Coordinator? = parent
+        while localParent != coordinator {
+            if let localParent = localParent {
+                localParent.removeChildScenes()
+            }
+            localParent = localParent?.parent
+        }
+        if let localParent = localParent {
+            localParent.removeChildScenes()
+        }
+    }
+    
+    func removeChildScenes() {
+        child.removeAll()
     }
     
     func removeScene() {
@@ -85,5 +112,33 @@ extension Coordinator {
         nav.navigationBar.isHidden = true
         window?.rootViewController = nav
     }
+    
+    func findRootCoordinator() -> Coordinator? {
+        var localParent: Coordinator? = parent
+        while localParent?.parent != nil {
+            localParent = localParent?.parent
+        }
+        return localParent
+    }
+    
+    func getAllParents() -> [Coordinator] {
+        var array: [Coordinator] = []
+        var localC = parent
+        
+        while localC != nil {
+            array.append(localC!)
+            localC = localC?.parent
+        }
+        
+        return array
+    }
+    
+}
+
+extension Coordinator: Equatable {
+    static func == (lhs: Coordinator, rhs: Coordinator) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     
 }
