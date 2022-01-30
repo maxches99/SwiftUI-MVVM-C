@@ -5,16 +5,13 @@
 //  Created by Максим Чесников on 04.01.2022.
 //
 
+import Foundation
 import Combine
 import protocol SwiftUI.ObservableObject
 
-class WeatherDetailViewModel: ObservableObject {
-    let didNavigateBack = PassthroughSubject<Void, Never>()
-    let didNavigateRoot = PassthroughSubject<Void, Never>()
-    let didRemoveScene = PassthroughSubject<Void, Never>()
-    let didSelectedIndividual = PassthroughSubject<Forecast, Never>()
+class WeatherDetailViewModel: ViewModel {
     
-    private var coordinator: WeatherDetailCoordinator?
+    let didSelectedIndividual = PassthroughSubject<Forecast, Never>()
     
     private(set) var forecast: Forecast
     
@@ -22,20 +19,8 @@ class WeatherDetailViewModel: ObservableObject {
         self.forecast = forecast
     }
     
-    func backAction() {
-        didNavigateBack.send(())
-    }
-    
     func selectItem() {
         didSelectedIndividual.send(forecast)
-    }
-    
-    func rootAction() {
-        didNavigateRoot.send(())
-    }
-    
-    func dismissScene() {
-        didRemoveScene.send(())
     }
     
     deinit {

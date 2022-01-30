@@ -35,6 +35,8 @@
 		82301E152783B2910030B127 /* WeatherDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82301E142783B2910030B127 /* WeatherDetailCoordinator.swift */; };
 		82301E172783B2B10030B127 /* WeatherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82301E162783B2B10030B127 /* WeatherDetailView.swift */; };
 		82301E1A2783B8E40030B127 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82301E192783B8E40030B127 /* ForecastCell.swift */; };
+		828A573C27A72D1D001E2B72 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A573B27A72D1D001E2B72 /* BackButton.swift */; };
+		828A574027A72FA1001E2B72 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828A573F27A72FA1001E2B72 /* ViewModel.swift */; };
 		82BD63F22788F66B00121036 /* CoordinatorNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		82301E142783B2910030B127 /* WeatherDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCoordinator.swift; sourceTree = "<group>"; };
 		82301E162783B2B10030B127 /* WeatherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailView.swift; sourceTree = "<group>"; };
 		82301E192783B8E40030B127 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
+		828A573B27A72D1D001E2B72 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		828A573F27A72FA1001E2B72 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +127,7 @@
 		43736D7D2652280700CE4368 /* SwiftUI-MVVM-C */ = {
 			isa = PBXGroup;
 			children = (
-				82301DE42783AE1A0030B127 /* Coordinators */,
+				82301DE42783AE1A0030B127 /* Architecture */,
 				82301DED2783AE1A0030B127 /* Endpoints */,
 				82301DE02783AE1A0030B127 /* Entities */,
 				82301DFA2783AE1A0030B127 /* Errors */,
@@ -195,14 +199,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		82301DE42783AE1A0030B127 /* Coordinators */ = {
+		82301DE42783AE1A0030B127 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
-				82301DE52783AE1A0030B127 /* AppCoordinator.swift */,
-				82301DE72783AE1A0030B127 /* Coordinator.swift */,
-				82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */,
+				828A573E27A72F96001E2B72 /* ViewModel */,
+				828A573D27A72F8E001E2B72 /* Coordinators */,
 			);
-			path = Coordinators;
+			path = Architecture;
 			sourceTree = "<group>";
 		};
 		82301DE82783AE1A0030B127 /* States */ = {
@@ -288,6 +291,7 @@
 				82301E182783B8D70030B127 /* ForecastCell */,
 				82301DF82783AE1A0030B127 /* ProgressiveView.swift */,
 				82301DF92783AE1A0030B127 /* ErrorView.swift */,
+				828A573B27A72D1D001E2B72 /* BackButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -348,6 +352,24 @@
 				82301E192783B8E40030B127 /* ForecastCell.swift */,
 			);
 			path = ForecastCell;
+			sourceTree = "<group>";
+		};
+		828A573D27A72F8E001E2B72 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				82301DE52783AE1A0030B127 /* AppCoordinator.swift */,
+				82301DE72783AE1A0030B127 /* Coordinator.swift */,
+				82BD63F12788F66B00121036 /* CoordinatorNavigationController.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		828A573E27A72F96001E2B72 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				828A573F27A72FA1001E2B72 /* ViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,8 +480,10 @@
 			files = (
 				82301E1A2783B8E40030B127 /* ForecastCell.swift in Sources */,
 				82301E152783B2910030B127 /* WeatherDetailCoordinator.swift in Sources */,
+				828A573C27A72D1D001E2B72 /* BackButton.swift in Sources */,
 				82301E022783AE1A0030B127 /* Coordinator.swift in Sources */,
 				82301E172783B2B10030B127 /* WeatherDetailView.swift in Sources */,
+				828A574027A72FA1001E2B72 /* ViewModel.swift in Sources */,
 				82BD63F22788F66B00121036 /* CoordinatorNavigationController.swift in Sources */,
 				82301E002783AE1A0030B127 /* AppCoordinator.swift in Sources */,
 				82301DFE2783AE1A0030B127 /* Weather.swift in Sources */,
@@ -635,7 +659,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-MVVM-C/Preview Content\"";
-				DEVELOPMENT_TEAM = 94KKN3D4YS;
+				DEVELOPMENT_TEAM = 274RF4F6D5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-MVVM-C/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -656,7 +680,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-MVVM-C/Preview Content\"";
-				DEVELOPMENT_TEAM = 94KKN3D4YS;
+				DEVELOPMENT_TEAM = 274RF4F6D5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "SwiftUI-MVVM-C/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

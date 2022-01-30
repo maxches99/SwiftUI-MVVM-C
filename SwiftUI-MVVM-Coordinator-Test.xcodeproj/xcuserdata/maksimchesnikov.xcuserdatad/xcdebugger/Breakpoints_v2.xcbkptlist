@@ -14,8 +14,8 @@
             filePath = "SwiftUI-MVVM-C/Coordinators/Coordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "navigationController"
             landmarkType = "24">
          </BreakpointContent>
@@ -62,10 +62,58 @@
             filePath = "SwiftUI-MVVM-C/Modules/WeatherList/ViewModel/WeatherListViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "selectItem(item:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7BE1F6E3-9262-4E08-92E7-9C4F90C5D1B0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUI-MVVM-C/Coordinators/Coordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "popToScene(coordinator:animated:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7BE1F6E3-9262-4E08-92E7-9C4F90C5D1B0 - 445a28ec18fc4380"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI_MVVM_Coordinator_Test.Coordinator.popToScene(coordinator: SwiftUI_MVVM_Coordinator_Test.Coordinator, animated: Swift.Bool) -&gt; ()"
+                  moduleName = "SwiftUI-MVVM-Coordinator-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimchesnikov/Downloads/SwiftUI-MVVM-C-main%C2%A0%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F/SwiftUI-MVVM-C/SwiftUI-MVVM-C/Coordinators/Coordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "7BE1F6E3-9262-4E08-92E7-9C4F90C5D1B0 - 445a28ec18fc4380"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI_MVVM_Coordinator_Test.Coordinator.popToScene(coordinator: SwiftUI_MVVM_Coordinator_Test.Coordinator, animated: Swift.Bool) -&gt; ()"
+                  moduleName = "SwiftUI-MVVM-Coordinator-Test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maksimchesnikov/Downloads/SwiftUI-MVVM-C-main%C2%A0%E2%80%94%20%D0%BA%D0%BE%D0%BF%D0%B8%D1%8F/SwiftUI-MVVM-C/SwiftUI-MVVM-C/Coordinators/Coordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

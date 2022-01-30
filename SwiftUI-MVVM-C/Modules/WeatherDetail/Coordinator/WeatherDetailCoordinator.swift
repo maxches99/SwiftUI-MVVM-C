@@ -7,8 +7,9 @@
 
 import SwiftUI
 import Combine
+import Foundation
 
-class WeatherDetailCoordinator: Coordinator, ObservableObject, Identifiable {
+class WeatherDetailCoordinator: Coordinator, ObservableObject {
     
     @Published var viewModel:WeatherDetailViewModel!
     @Published var view: WeatherDetailView!
@@ -16,7 +17,7 @@ class WeatherDetailCoordinator: Coordinator, ObservableObject, Identifiable {
     init(viewModel: WeatherDetailViewModel,
          parent: Coordinator) {
         
-        super.init(parent: parent)
+        super.init(title: "DetailScreen", parent: parent)
         
         self.viewModel = viewModel
         self.view = WeatherDetailView()
@@ -29,7 +30,6 @@ class WeatherDetailCoordinator: Coordinator, ObservableObject, Identifiable {
         cancellables["popVC"] = viewModel.didNavigateBack
             .sink { [weak self] (item) in
                 self?.popScene(animated: true)
-//                self?.navigationController.popViewController(animated: true)
         }
         
         cancellables["showList"] = viewModel.didSelectedIndividual
@@ -46,14 +46,32 @@ class WeatherDetailCoordinator: Coordinator, ObservableObject, Identifiable {
             .sink { [weak self] (item) in
                 self?.removeScene()
         }
+        
+        cancellables["didNavigateTo"] = viewModel.didNavigateTo
+            .sink { [weak self] (item) in
+                var localC = self?.parent
+                
+                while localC != item {
+                    localC = localC?.parent
+                }
+                if let localC = localC {
+                    self?.popToScene(coordinator: localC, animated: true)
+                } else {
+                    print("Error")
+                }
+        }
     }
     
     private func showDetailScreen(_ item:Forecast) {
         let viewModel = WeatherDetailViewModel(forecast: item)
         let weatherDetailCoordinator = WeatherDetailCoordinator(viewModel: viewModel, parent: self)
         let controller = UIHostingController(rootView: weatherDetailCoordinator.view.environmentObject(viewModel))
+        viewModel.coordinator = weatherDetailCoordinator
+        weatherDetailCoordinator.vc = controller
+        
         pushScene(viewController: controller, coordinator: weatherDetailCoordinator, animated: true)
     }
+    
     
     deinit {
         print("||deinit WeatherDetailCoordinator")

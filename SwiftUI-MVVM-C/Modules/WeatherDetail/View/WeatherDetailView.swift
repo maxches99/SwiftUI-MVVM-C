@@ -14,15 +14,20 @@ struct WeatherDetailView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(viewModel.forecast.name ?? "")
-                    .navigationBarItems(leading: Button(action: {
-                        viewModel.backAction()
-                    }, label: {
-                        Text("Back")
-                }))
                 Button("Root", action: viewModel.rootAction)
                 Button("New screen", action: viewModel.selectItem)
             }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle(viewModel.title)
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading, content: {
+                    BackButton(
+                        backAction: { viewModel.backAction() },
+                        menuItemAction: { viewModel.navigateTo(coordinator: $0) },
+                        coordinators: viewModel.getAllCoordinators()
+                    )
+                })
+            })
         }
     }
 }

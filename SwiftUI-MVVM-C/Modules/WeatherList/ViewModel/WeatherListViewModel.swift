@@ -11,11 +11,9 @@ import Combine
 import CoreGraphics
 import CoreLocation
 
-class WeatherListViewModel: NSObject, ObservableObject {
+class WeatherListViewModel: ViewModel {
     
     let didSelectedIndividual = PassthroughSubject<Forecast, Never>()
-    
-    private var coordinator: WeatherListCoordinator?
     
     private let service: WeatherService
     
@@ -27,7 +25,6 @@ class WeatherListViewModel: NSObject, ObservableObject {
     private var locationData: (CLLocationDegrees, CLLocationDegrees)?
     
     @Published private(set) var state: ResultState = .loading
-    @Published var title: String?
     
     init(service: WeatherService) {
         self.service = service
@@ -80,5 +77,3 @@ extension WeatherListViewModel: CLLocationManagerDelegate {
         getForecasts()
     }
 }
-
-
